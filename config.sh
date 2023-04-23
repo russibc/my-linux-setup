@@ -2,40 +2,48 @@
 
 echo "Starting packages install..."
 
-# Install OpenJDK, PyQt5, Qt Designer, Node.js and npm
+# Development Tools
+echo "Installing Development Tools group..."
+sudo dnf groupinstall 'Development Tools' -y
+
+# Java and Node.js
 echo "Installing OpenJDK, PyQt5, Qt Designer, Node.js and npm..."
 sudo dnf install java-latest-openjdk.x86_64 -y
 sudo dnf install pip PyQt5 qt5-designer.x86_64 -y
 sudo dnf install nodejs npm -y
 
-# Install Development Tools group
-echo "Installing Development Tools group..."
-sudo dnf groupinstall 'Development Tools' -y
-
-# Install additional packages
-echo "Installing additional packages..."
+# Multimedia
+echo "Installing multimedia packages..."
 sudo dnf install gthumb kdenlive fritzing simplescreenrecorder drawing vlc audacity inkscape gimp -y
 
-# Install system packages
+# System packages
 echo "Installing system packages..."
 sudo dnf install gnome-extensions-app xkill okular gparted gnome-tweak-tool alacarte transmission -y 
 
-# Install Steam
-echo "Installing Steam..."
-sudo dnf install steam -y
+# Web browsers
+echo "Installing web browsers..."
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -P /tmp/
+sudo dnf install /tmp/google-chrome-stable_current_x86_64.rpm -y
 
-# Install Spotify
-echo "Installing Spotify..."
-sudo dnf config-manager --add-repo=https://negativo17.org/repos/fedora-spotify.repo -y
-sudo dnf install spotify-client -y
+# Database management
+echo "Installing database management packages..."
+sudo dnf install mysql-server mysql-workbench -y
 
-# Install GitKraken
-echo "Installing GitKraken..."
+# Communication
+echo "Installing communication packages..."
+wget https://dl.discordapp.net/apps/linux/0.0.16/discord-0.0.16.rpm -P /tmp/
+sudo dnf install /tmp/discord-0.0.16.rpm -y
+
+# Remote control
+echo "Installing remote control packages..."
+wget https://www.unifiedremote.com/download/linux-deb/urserver-3.7.1.2381-amd64.deb -P /tmp/
+sudo dnf install /tmp/urserver-3.7.1.2381-amd64.deb -y
+
+# Productivity tools
+echo "Installing productivity tools..."
+sudo dnf install eclipse-jdt -y
 wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm -P /tmp/
 sudo dnf install /tmp/gitkraken-amd64.rpm -y
-
-# Install Visual Studio Code
-echo "Installing Visual Studio Code..."
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo tee /etc/yum.repos.d/vscode.repo <<EOF
 [code]
