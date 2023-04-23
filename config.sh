@@ -47,4 +47,4 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code -y
 
-echo "Configuration completed."
+echo "Installation completed."
