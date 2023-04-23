@@ -29,3 +29,9 @@ echo "Cleaning dnf cache, updating, and upgrading packages..."
 sudo dnf clean all && sudo dnf update -y && sudo dnf upgrade -y
 
 echo "Setup completed."
+echo "Rebooting in..."
+for i in {3..1}
+do
+    echo "$i..."
+done
+reboot now
