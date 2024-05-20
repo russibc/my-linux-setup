@@ -55,4 +55,16 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code -y
 
+# clone the repo into "$HOME/src/gogh"
+mkdir -p "$HOME/src"
+cd "$HOME/src"
+git clone https://github.com/Gogh-Co/Gogh.git gogh
+cd gogh
+
+cd installs
+./aci.sh
+
+# necessary in the Gnome terminal
+export TERMINAL=gnome-terminal
+
 echo "Installation completed."
