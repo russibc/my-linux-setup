@@ -7,9 +7,9 @@ echo "Removing unwanted packages..."
 sudo dnf remove eog -y
 sudo dnf remove evince -y
 sudo dnf remove rhythmbox -y
-sudo dnf remove libreoffice* -y
 sudo dnf remove totem -y
 sudo dnf remove gnome-maps -y
+sudo dnf remove gnome-calendar -y
 sudo dnf remove gnome-contacts -y
 sudo dnf remove gnome-weather -y
 sudo dnf remove gnome-boxes -y
