@@ -9,12 +9,12 @@ sudo dnf groupinstall 'Development Tools' -y
 # Java and Node.js
 echo "Installing OpenJDK, PyQt5, Qt Designer, Node.js and npm..."
 sudo dnf install java-latest-openjdk.x86_64 -y
-sudo dnf install pip PyQt5 qt5-designer.x86_64 -y
+sudo dnf install pip -y # PyQt5 qt5-designer.x86_64
 sudo dnf install nodejs npm -y
 
 # Multimedia
 echo "Installing multimedia packages..."
-sudo dnf install gthumb kdenlive fritzing simplescreenrecorder drawing vlc audacity inkscape gimp -y
+sudo dnf install gthumb vlc inkscape gimp -y # kdenlive fritzing simplescreenrecorder drawing audacity
 
 # System packages
 echo "Installing system packages..."
