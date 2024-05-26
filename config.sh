@@ -17,6 +17,7 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code -y
+sudo dnf install docker -y
 
 # Java and Node.js
 echo "Installing OpenJDK, PyQt5, Qt Designer, Node.js and npm..."
@@ -25,7 +26,9 @@ sudo dnf install pip -y # PyQt5 qt5-designer.x86_64
 sudo dnf install nodejs npm -y
 
 # Database management
-# echo "Installing database management packages..."
+echo "Installing database management packages..."
+wget https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm -P /tmp/
+sudo dnf install /tmp/dbeaver* -y
 # sudo dnf install mysql-server mysql-workbench -y
 
 # Multimedia
@@ -46,11 +49,31 @@ sudo dnf install /tmp/urserver* -y
 echo "Installing utilitary software..."
 sudo dnf install gnome-extensions-app gedit xkill okular gparted gnome-tweak-tool alacarte transmission flatpak -y 
 
+echo "Starting installations using Flatpak..."
+# Communication
 flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.slack.Slack
+
+# Games
 flatpak install flathub com.valvesoftware.Steam
+
+# Music
 flatpak install flathub com.spotify.Client
 
-# clone the repo into "$HOME/src/gogh"
+# Flatpak management
+flatpak install flathub io.github.flattool.Warehouse
+
+# Academic
+flatpak install flathub org.zotero.Zotero
+
+# Development
+flatpak install flathub org.eclipse.Java
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate
+flatpak install flathub com.getpostman.Postman
+
+echo "Flatpak installations finished!"
+
+# Terminal colors
 mkdir -p "$HOME/src"
 cd "$HOME/src"
 git clone https://github.com/Gogh-Co/Gogh.git gogh
@@ -58,4 +81,4 @@ git clone https://github.com/Gogh-Co/Gogh.git gogh
 # cd installs
 # ./aci.sh
 
-echo "Installation completed."
+echo "Full configuration completed."
