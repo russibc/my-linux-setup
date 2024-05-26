@@ -51,25 +51,25 @@ sudo dnf install gnome-extensions-app gedit xkill okular gparted gnome-tweak-too
 
 echo "Starting installations using Flatpak..."
 # Communication
-flatpak install flathub com.discordapp.Discord
-flatpak install flathub com.slack.Slack
+flatpak install flathub com.discordapp.Discord -y
+flatpak install flathub com.slack.Slack -y
 
 # Games
-flatpak install flathub com.valvesoftware.Steam
+flatpak install flathub com.valvesoftware.Steam -y
 
 # Music
-flatpak install flathub com.spotify.Client
+flatpak install flathub com.spotify.Client -y
 
 # Flatpak management
-flatpak install flathub io.github.flattool.Warehouse
+flatpak install flathub io.github.flattool.Warehouse -y
 
 # Academic
-flatpak install flathub org.zotero.Zotero
+flatpak install flathub org.zotero.Zotero -y
 
 # Development
-flatpak install flathub org.eclipse.Java
-flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate
-flatpak install flathub com.getpostman.Postman
+flatpak install flathub org.eclipse.Java -y
+flatpak install flathub com.jetbrains.IntelliJ-IDEA-Ultimate -y
+flatpak install flathub com.getpostman.Postman -y
 
 echo "Flatpak installations finished!"
 
