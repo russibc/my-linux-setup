@@ -5,43 +5,6 @@ echo "Starting packages install..."
 # Development Tools
 echo "Installing Development Tools group..."
 sudo dnf groupinstall 'Development Tools' -y
-
-# Java and Node.js
-echo "Installing OpenJDK, PyQt5, Qt Designer, Node.js and npm..."
-sudo dnf install java-latest-openjdk.x86_64 -y
-sudo dnf install pip -y # PyQt5 qt5-designer.x86_64
-sudo dnf install nodejs npm -y
-
-# Multimedia
-echo "Installing multimedia packages..."
-sudo dnf install gthumb vlc inkscape gimp -y # kdenlive fritzing simplescreenrecorder drawing audacity
-
-# System packages
-echo "Installing system packages..."
-sudo dnf install gnome-extensions-app xkill okular gparted gnome-tweak-tool alacarte transmission -y 
-
-# Web browsers
-echo "Installing web browsers..."
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -P /tmp/
-sudo dnf install /tmp/google-chrome-stable_current_x86_64.rpm -y
-
-# Database management
-echo "Installing database management packages..."
-sudo dnf install mysql-server mysql-workbench -y
-
-# Communication
-echo "Installing communication packages..."
-wget https://dl.discordapp.net/apps/linux/0.0.16/discord-0.0.16.rpm -P /tmp/
-sudo dnf install /tmp/discord-0.0.16.rpm -y
-
-# Remote control
-echo "Installing remote control packages..."
-wget https://www.unifiedremote.com/download/linux-deb/urserver-3.7.1.2381-amd64.deb -P /tmp/
-sudo dnf install /tmp/urserver-3.7.1.2381-amd64.deb -y
-
-# Productivity tools
-echo "Installing productivity tools..."
-sudo dnf install eclipse-jdt -y
 wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm -P /tmp/
 sudo dnf install /tmp/gitkraken-amd64.rpm -y
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -55,16 +18,44 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 sudo dnf install code -y
 
+# Java and Node.js
+echo "Installing OpenJDK, PyQt5, Qt Designer, Node.js and npm..."
+sudo dnf install java-latest-openjdk.x86_64 -y
+sudo dnf install pip -y # PyQt5 qt5-designer.x86_64
+sudo dnf install nodejs npm -y
+
+# Database management
+# echo "Installing database management packages..."
+# sudo dnf install mysql-server mysql-workbench -y
+
+# Multimedia
+echo "Installing multimedia packages..."
+sudo dnf install gthumb vlc inkscape gimp -y # kdenlive fritzing simplescreenrecorder drawing audacity
+
+# Web browsers
+echo "Installing Chrome..."
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -P /tmp/
+sudo dnf install /tmp/google-chrome-stable_current_x86_64.rpm -y
+
+# Remote control
+echo "Installing remote control packages..."
+wget https://www.unifiedremote.com/download/linux-x64-rpm -P /tmp/
+sudo dnf install /tmp/urserver* -y
+
+# Utilitary
+echo "Installing utilitary software..."
+sudo dnf install gnome-extensions-app gedit xkill okular gparted gnome-tweak-tool alacarte transmission flatpak -y 
+
+flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.valvesoftware.Steam
+flatpak install flathub com.spotify.Client
+
 # clone the repo into "$HOME/src/gogh"
 mkdir -p "$HOME/src"
 cd "$HOME/src"
 git clone https://github.com/Gogh-Co/Gogh.git gogh
-cd gogh
-
-cd installs
-./aci.sh
-
-# necessary in the Gnome terminal
-export TERMINAL=gnome-terminal
+# cd gogh
+# cd installs
+# ./aci.sh
 
 echo "Installation completed."
